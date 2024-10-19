@@ -1,24 +1,23 @@
-public class BinarySearch {
-    public static void main(String args[]) {
+#include <iostream>
+using namespace std;
 
-        int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+int main() {
+    int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+    int low = 0, high = (sizeof(arr) / sizeof(arr[0])) - 1;
+    int num = 6;
 
-        int low = 0, high = (arr.length - 1);
+    while (low <= high) {
+        int mid = low + (high - low) / 2;  // To avoid overflow
 
-        int num = 6;
-
-        while (low <= high) {
-
-            int mid = (low + high) / 2;
-
-            if (arr[mid] == num) {
-                System.out.println("At: " + (mid + 1));
-                break;
-            } else if (arr[mid] < num) {
-                low = mid + 1;
-            } else if (arr[mid] > num) {
-                high = mid - 1;
-            }
+        if (arr[mid] == num) {
+            cout << "At: " << (mid + 1) << endl;
+            break;
+        } else if (arr[mid] < num) {
+            low = mid + 1;
+        } else {
+            high = mid - 1;
         }
     }
+
+    return 0;
 }
